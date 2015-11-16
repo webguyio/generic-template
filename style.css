@@ -23,7 +23,7 @@ blockquote p:first-of-type{margin-top:0}
 #content ol{list-style:decimal inside;text-indent:-17px}
 #content ul li:before{content:"- "}
 #content li{margin:5px 0}
-input, textarea{padding:10px;border:0 none;margin-top:10px;background:#f6f6f6}
+input, textarea{padding:10px;border:0 none;outline:0 none;margin-top:10px;background:#f6f6f6}
 input[type="submit"], #menu .toggle:hover{cursor:pointer}
 a img, input[type="image"]{border:0 none}
 img, video, table, select, textarea{max-width:100% !important;height:auto}
