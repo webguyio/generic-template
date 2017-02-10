@@ -27,8 +27,9 @@ blockquote p:first-of-type{margin-top:0}
 #content li{margin:10px 0}
 input, textarea{padding:10px;border:0 none;outline:0 none;margin-top:10px;background:#f6f6f6}
 input[type="submit"], #menu .toggle:hover{cursor:pointer}
+input[type="search"]{-webkit-appearance:textfield}
 a img, input[type="image"]{border:0 none}
-img, video, table, select, textarea{max-width:100% !important;height:auto}
+img, video, audio, table, select, textarea{max-width:100% !important;height:auto}
 table{width:100%;margin:30px 0}
 
 #wrapper{max-width:960px;margin:0 auto}
@@ -60,6 +61,6 @@ table{width:100%;margin:30px 0}
 #copyright, #copyright a{font-size:14px;color:#aaa;text-align:center}
 
 @media all and (max-width:768px){#header, #container{margin-bottom:30px}#content, #sidebar{width:100%;padding:5%}.widget-container{margin:30px 0 0}#menu label.toggle{display:block}#menu{background:#777}#menu ul{display:none}#menu ul ul{display:none !important}#menu input.toggle:checked + ul{display:block}#menu input.toggle:checked + ul li a{display:inline-block;width:100%;color:#fff;padding-left:5%}}
-@media all and (max-width:480px){textarea{width:100%}}
+@media all and (max-width:480px){input, textarea{width:100%}}
 
 .url{display:none}
