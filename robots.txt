@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /*?
 Disallow: /cgi-bin/
 
-Sitemap: http://website.com/sitemap.xml
+Sitemap: https://website.com/sitemap.xml
