@@ -19,7 +19,7 @@
 <script type="text/javascript" src="js/videos.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($){
-$("#wrapper").vids();
+$('#wrapper').vids();
 });
 </script>
 
