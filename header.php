@@ -35,7 +35,7 @@ $('#wrapper').vids();
 
 <nav id="menu">
 
-<label class="toggle" for="toggle">&#9776; Menu</label>
+<label class="toggle" for="toggle"><span class="menu-icon">&#9776;</span> Menu</label>
 <input id="toggle" class="toggle" type="checkbox" />
 
 <ul class="xoxo">
