@@ -6,6 +6,6 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://website.com/</loc>
+  <loc>https://example.com/</loc>
 </url>
 </urlset>

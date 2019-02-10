@@ -2,9 +2,10 @@
 <?php define( 'description', 'Page description for search engines here.' ); ?>
 <?php define( 'keywords', 'keywords, for, search engines, here' ); ?>
 <?php define( 'pageid', 'contact' ); ?>
+<?php define( 'index', '<meta name="robots" content="index" />' ); ?>
 <?php include( 'header.php' ); ?>
 
-<form action="contact-actions.php" method="post">
+<form action="email.php" method="post">
 <p>Name:<br /><input size="35" name="name" type="text" /></p>
 <p>Phone:<br /><input size="35" name="phone" type="text" /></p>
 <p>Email:<br /><input size="35" name="EmailFrom" type="text" /></p>

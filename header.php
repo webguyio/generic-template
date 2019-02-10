@@ -8,6 +8,14 @@
 <meta name="viewport" content="width=device-width" />
 <meta name="description" content="<?php echo description; ?>" />
 <meta name="keywords" content="<?php echo keywords; ?>" />
+<meta property="og:image" content="https://example.com/images/icon.png" />
+<meta name="twitter:card" content="photo" />
+<meta name="twitter:site" content="Company Name" />
+<meta name="twitter:title" content="<?php echo title; ?>" />
+<meta name="twitter:description" content="<?php echo description; ?>" />
+<meta name="twitter:image" content="https://example.com/images/icon.png" />
+<meta name="twitter:url" content="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
+<?php echo index; ?>
 
 <title><?php echo title; ?> | Company Name</title>
 
@@ -15,12 +23,35 @@
 <link rel="canonical" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 
-<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="js/videos.js"></script>
-<script type="text/javascript">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/videos.js"></script>
+<script>
 jQuery(document).ready(function($){
 $('#wrapper').vids();
 });
+</script>
+<script type='application/ld+json'> 
+{
+"@context": "https://www.schema.org/",
+"@type": "WebSite",
+"name": "Company Name",
+"url": "https://example.com/"
+}
+</script>
+<script type='application/ld+json'> 
+{
+"@context": "https://www.schema.org/",
+"@type": "Organization",
+"name": "Company Name",
+"url": "https://example.com/",
+"sameAs": [
+"https://www.facebook.com/example/",
+"https://twitter.com/example"
+],
+"logo": "https://example.com/images/logo.png",
+"image": "https://example.com/images/icon.png",
+"description": "Description of Website"
+}
 </script>
 
 </head>
@@ -31,16 +62,16 @@ $('#wrapper').vids();
 
 <header id="header"> 
 
-<div id="site-title"><a href="./">Company Name</a></div>
+<div id="site-title"><a href="./">Company Name<!-- <img src="images/logo.png" alt="Company Name" id="logo" /> --></a></div>
 
 <nav id="menu">
 
-<label class="toggle" for="toggle"><span class="menu-icon">&#9776;</span> Menu</label>
+<label class="toggle" for="toggle"><span class="menu-icon">&#9776;</span></label>
 <input id="toggle" class="toggle" type="checkbox" />
 
 <ul class="xoxo">
 
-<li><a href="./">Page 1</a>
+<li class="parent"><a href="./">Page 1</a>
 <ul>
 <li><a href="#">Dropdown Item 1</a></li>
 <li><a href="#">Dropdown Item 2</a></li>

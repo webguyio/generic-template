@@ -3,7 +3,7 @@
 if ( $_POST['url'] == 'http://' ) {
 
 $EmailFrom = Trim( stripslashes( $_POST['EmailFrom'] ) );
-$EmailTo = "email@website.com";
+$EmailTo = "email@example.com";
 $Subject = "Inquiry | Company Name";
 $name = Trim( stripslashes( $_POST['name'] ) );
 $phone = Trim( stripslashes( $_POST['phone'] ) );
@@ -24,8 +24,7 @@ $Body .= $phone;
 $Body .= "\n";
 $Body .= "Email: ";
 $Body .= $EmailFrom;
-$Body .= "\n";
-$Body .= "Message: ";
+$Body .= "\n\n";
 $Body .= $message;
 $Body .= "\n";
  
