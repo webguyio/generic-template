@@ -92,7 +92,7 @@ $('#wrapper').vids();
 
 <div id="container">
 
-<main id="content" class="hentry">
+<main id="content" class="hentry" role="main">
 
 <article class="entry-content">
 
