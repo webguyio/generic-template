@@ -1,39 +1,40 @@
 <?php
 
-if ( $_POST['url'] == 'http://' ) {
+if ( $_POST['url'] == 'https://example.com/' ) {
 
-$EmailFrom = Trim( stripslashes( $_POST['EmailFrom'] ) );
-$EmailTo = "email@example.com";
-$Subject = "Inquiry | Company Name";
-$name = Trim( stripslashes( $_POST['name'] ) );
-$phone = Trim( stripslashes( $_POST['phone'] ) );
-$message = Trim( stripslashes( $_POST['message'] ) );
+$to      = 'email@example.com';
+$subject = 'Inquiry | Company Name';
+$name    = trim( stripslashes( $_POST['name'] ) );
+$phone   = trim( stripslashes( $_POST['phone'] ) );
+$email   = trim( stripslashes( $_POST['email'] ) );
+$message = trim( stripslashes( $_POST['message'] ) );
 
-$validationOK=true;
-if ( !$validationOK ) {
-print "<meta http-equiv=\"refresh\" content=\"0;URL=fail\">";
+$validated = true;
+
+if ( !$validated ) {
+print '<meta http-equiv="refresh" content="0;url=fail" />';
 exit;
 }
 
-$Body = "";
-$Body .= "Name: ";
-$Body .= $name;
-$Body .= "\n";
-$Body .= "Phone: ";
-$Body .= $phone;
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $EmailFrom;
-$Body .= "\n\n";
-$Body .= $message;
-$Body .= "\n";
+$body  = "";
+$body .= "Name: ";
+$body .= $name;
+$body .= "\n";
+$body .= "Phone: ";
+$body .= $phone;
+$body .= "\n";
+$body .= "Email: ";
+$body .= $email;
+$body .= "\n\n";
+$body .= $message;
+$body .= "\n";
  
-$success = mail( $EmailTo, $Subject, $Body, "From: <$EmailFrom>" );
+$success = mail( $to, $subject, $body, "From: <$email>" );
  
 if ( $success ) {
-print "<meta http-equiv=\"refresh\" content=\"0;URL=success\">";
+print '<meta http-equiv="refresh" content="0;url=success" />';
 } else {
-print "<meta http-equiv=\"refresh\" content=\"0;URL=fail\">";
+print '<meta http-equiv="refresh" content="0;url=fail" />';
 }
 
 }

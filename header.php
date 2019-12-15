@@ -21,9 +21,9 @@
 
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="canonical" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="style.css" />
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/videos.js"></script>
 <script>
 jQuery(document).ready(function($){
@@ -58,24 +58,25 @@ $('#wrapper').vids();
 
 <body id="<?php echo pageid; ?>">
 
+<a href="#content" class="button visually-hidden">Skip to the content</a>
+
 <div id="wrapper" class="hfeed">
 
-<header id="header"> 
+<header id="header" role="banner"> 
 
 <div id="site-title"><a href="./">Company Name<!-- <img src="images/logo.png" alt="Company Name" id="logo" /> --></a></div>
 
-<nav id="menu">
+<nav id="menu" role="navigation">
 
-<label class="toggle" for="toggle"><span class="menu-icon">&#9776;</span></label>
-<input id="toggle" class="toggle" type="checkbox" />
+<button type="button" class="menu-toggle"><span class="menu-icon">&#9776;</span><span class="menu-text visually-hidden"> Menu</span></button>
 
 <ul class="xoxo">
 
 <li class="parent"><a href="./">Page 1</a>
-<ul>
-<li><a href="#">Dropdown Item 1</a></li>
-<li><a href="#">Dropdown Item 2</a></li>
-<li><a href="#">Dropdown Item 3</a></li>
+<ul class="sub-menu">
+<li><a href="#" class="child">Dropdown Item 1</a></li>
+<li><a href="#" class="child">Dropdown Item 2</a></li>
+<li><a href="#" class="child">Dropdown Item 3</a></li>
 </ul>
 </li>
 <li><a href="#">Page 2</a></li>

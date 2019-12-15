@@ -1,4 +1,4 @@
-<aside id="sidebar">
+<aside id="sidebar" role="complementary">
 
 <ul class="xoxo">
 
