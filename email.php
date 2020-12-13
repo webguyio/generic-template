@@ -4,10 +4,10 @@ if ( $_POST['url'] == 'https://example.com/' ) {
 
 $to      = 'email@example.com';
 $subject = 'Inquiry | Company Name';
-$name    = trim( stripslashes( $_POST['name'] ) );
-$phone   = trim( stripslashes( $_POST['phone'] ) );
-$email   = trim( stripslashes( $_POST['email'] ) );
-$message = trim( stripslashes( $_POST['message'] ) );
+$name    = trim( stripslashes( htmlspecialchars( $_POST['sign'] ) ) );
+$email   = trim( stripslashes( htmlspecialchars( $_POST['email'] ) ) );
+$phone   = trim( stripslashes( htmlspecialchars( $_POST['phone'] ) ) );
+$message = trim( stripslashes( htmlspecialchars( $_POST['message'] ) ) );
 
 $validated = true;
 
@@ -20,11 +20,11 @@ $body  = "";
 $body .= "Name: ";
 $body .= $name;
 $body .= "\n";
-$body .= "Phone: ";
-$body .= $phone;
-$body .= "\n";
 $body .= "Email: ";
 $body .= $email;
+$body .= "\n";
+$body .= "Phone: ";
+$body .= $phone;
 $body .= "\n\n";
 $body .= $message;
 $body .= "\n";

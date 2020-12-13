@@ -8,12 +8,12 @@ include( 'header.php' );
 ?>
 
 <form method="post" action="email.php">
-<p>Name:<br /><input type="text" name="name" size="35" /></p>
-<p>Phone:<br /><input type="tel" name="phone" size="35" /></p>
-<p>Email:<br /><input type="email" name="email" size="35" required /></p>
-<p class="url">URL:<br /><input type="url" name="url" value="https://example.com/" size="35" class="url" /></p>
-<p>Message:<br /><textarea name="message" rows="5" cols="100" id="comment"></textarea></p>
-<p><input type="submit" value="Submit" class="button" /></p>
+<p id="name"><input type="text" name="sign" placeholder="Name" autocomplete="off" size="35" required /></p>
+<p id="email"><input type="email" name="email" placeholder="Email" autocomplete="off" size="35" required /></p>
+<p id="phone"><input type="tel" name="phone" placeholder="Phone (optional)" autocomplete="off" size="35" /></p>
+<p id="url"><input type="url" name="url" placeholder="URL" value="https://example.com/" autocomplete="off" tabindex="-1" size="35" required /></p>
+<p id="message"><textarea id="comment" name="message" placeholder="Message" rows="5" cols="100"></textarea></p>
+<p id="submit"><input type="submit" value="Submit" /></p>
 </form>
 
 <?php include( 'footer.php' ); ?>
