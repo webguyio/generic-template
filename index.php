@@ -1,9 +1,9 @@
 <?php
-define( 'title', 'Title of Page' );
-define( 'description', 'Page description for search engines here.' );
-define( 'keywords', 'keywords, for, search engines, here' );
-define( 'index', '<meta name="robots" content="index" />' );
-define( 'pageid', 'home' );
+define( 'page_title', 'Title of Page' );
+define( 'page_description', 'Page description for search engines here.' );
+define( 'page_keywords', 'keywords, for, search engines, here' );
+define( 'page_index', '<meta name="robots" content="index" />' );
+define( 'page_id', 'home' );
 include( 'header.php' );
 ?>
 

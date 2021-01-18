@@ -6,21 +6,21 @@
 
 </div>
 
-<footer id="footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+<footer id="footer" role="contentinfo">
 
 <div id="social">
 
-<a href="https://www.facebook.com/example/" title="Facebook" rel="me" target="_blank" itemprop="sameAs"><img src="images/fb.svg" alt="Facebook" class="svg" itemprop="image" /></a>
-<a href="https://twitter.com/example" title="Twitter" rel="me" target="_blank" itemprop="sameAs"><img src="images/tw.svg" alt="Twitter" class="svg" itemprop="image" /></a>
-<a href="https://www.instagram.com/example/" title="Instagram" rel="me" target="_blank" itemprop="sameAs"><img src="images/ig.svg" alt="Instagram" class="svg" itemprop="image" /></a>
-<a href="https://www.pinterest.com/example/" title="Pinterest" rel="me" target="_blank" itemprop="sameAs"><img src="images/pn.svg" alt="Pinterest" class="svg" itemprop="image" /></a>
-<a href="https://www.youtube.com/example" title="YouTube" rel="me" target="_blank" itemprop="sameAs"><img src="images/yt.svg" alt="YouTube" class="svg" itemprop="image" /></a>
+<a href="https://www.facebook.com/<?php echo social_username; ?>/" title="Facebook" rel="me" target="_blank" itemprop="sameAs"><img src="images/fb.svg" alt="Facebook" class="svg" itemprop="image" /></a>
+<a href="https://twitter.com/<?php echo social_username; ?>" title="Twitter" rel="me" target="_blank" itemprop="sameAs"><img src="images/tw.svg" alt="Twitter" class="svg" itemprop="image" /></a>
+<a href="https://www.instagram.com/<?php echo social_username; ?>/" title="Instagram" rel="me" target="_blank" itemprop="sameAs"><img src="images/ig.svg" alt="Instagram" class="svg" itemprop="image" /></a>
+<a href="https://www.pinterest.com/<?php echo social_username; ?>/" title="Pinterest" rel="me" target="_blank" itemprop="sameAs"><img src="images/pn.svg" alt="Pinterest" class="svg" itemprop="image" /></a>
+<a href="https://www.youtube.com/<?php echo social_username; ?>" title="YouTube" rel="me" target="_blank" itemprop="sameAs"><img src="images/yt.svg" alt="YouTube" class="svg" itemprop="image" /></a>
 
 </div>
 
 <div id="copyright">
 
-&copy; <?php echo date( 'Y' ); ?> Company Name
+&copy; <?php echo date( 'Y' ); ?> <?php echo site_title; ?>
 
 </div>
 
