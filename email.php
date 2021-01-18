@@ -1,6 +1,6 @@
 <?php
 
-if ( $_POST['url'] == 'https://example.com/' ) {
+if ( ( $_POST['url'] == 'https://example.com/' ) && ( stripos( $_POST['message'], 'http' ) === false ) ) {
 
 $to      = 'email@example.com';
 $subject = 'Inquiry | Company Name';

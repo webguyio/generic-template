@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
 
 <head>
 
@@ -56,33 +56,33 @@ $('#wrapper').vids();
 
 </head>
 
-<body id="<?php echo pageid; ?>">
+<body id="<?php echo pageid; ?>" itemscope itemtype="https://schema.org/WebPage">
 
 <a href="#content" class="button skip-link visually-hidden">Skip to the content</a>
 
 <div id="wrapper" class="hfeed">
 
-<header id="header" role="banner"> 
+<header id="header" role="banner" itemscope itemtype="https://schema.org/WPHeader"> 
 
-<div id="site-title"><a href="./">Company Name<!-- <img src="images/logo.png" alt="Company Name" id="logo" /> --></a></div>
+<div id="site-title" itemscope itemtype="https://schema.org/Organization"><a href="./" itemprop="url">Company Name<!-- <img src="images/logo.png" alt="Company Name" id="logo" itemprop="logo" /> --></a></div>
 
-<nav id="menu" role="navigation">
+<nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
 
 <button type="button" class="menu-toggle"><span class="menu-icon">&#9776;</span><span class="menu-text visually-hidden"> Menu</span></button>
 
 <ul class="xoxo">
 
-<li class="parent"><a href="./">Page 1</a>
+<li class="parent"><a href="./" itemprop="url"><span itemprop="name">Page 1</span></a>
 <ul class="sub-menu">
-<li><a href="#" class="child">Dropdown Item 1</a></li>
-<li><a href="#" class="child">Dropdown Item 2</a></li>
-<li><a href="#" class="child">Dropdown Item 3</a></li>
+<li><a href="#" class="child" itemprop="url"><span itemprop="name">Dropdown Item 1</span></a></li>
+<li><a href="#" class="child" itemprop="url"><span itemprop="name">Dropdown Item 2</span></a></li>
+<li><a href="#" class="child" itemprop="url"><span itemprop="name">Dropdown Item 3</span></a></li>
 </ul>
 </li>
-<li><a href="#">Page 2</a></li>
-<li><a href="#">Page 3</a></li>
-<li><a href="#">Page 4</a></li>
-<li><a href="contact">Contact</a></li>
+<li><a href="#" itemprop="url"><span itemprop="name">Page 2</span></a></li>
+<li><a href="#" itemprop="url"><span itemprop="name">Page 3</span></a></li>
+<li><a href="#" itemprop="url"><span itemprop="name">Page 4</span></a></li>
+<li><a href="contact" itemprop="url"><span itemprop="name">Contact</span></a></li>
 
 </ul>
 
@@ -94,11 +94,11 @@ $('#wrapper').vids();
 
 <main id="content" class="hentry" role="main">
 
-<article class="entry-content">
+<article class="entry-content" itemprop="mainContentOfPage">
 
 <header>
 
-<h1 class="entry-title"><?php echo title; ?></h1>
+<h1 class="entry-title" itemprop="name"><?php echo title; ?></h1>
 
 <div class="share">
 <a href="https://www.facebook.com/sharer/sharer.php?t=<?php echo title; ?>&amp;u=https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" title="Share on Facebook" class="facebook" target="_blank"><span class="icon"><svg viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path fill="currentColor" d="m22.676 0h-21.352c-.731 0-1.324.593-1.324 1.324v21.352c0 .732.593 1.324 1.324 1.324h11.494v-9.294h-3.129v-3.621h3.129v-2.675c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63h-3.119v9.282h6.115c.733 0 1.325-.592 1.325-1.324v-21.352c0-.731-.592-1.324-1.324-1.324" /></svg></span><span class="text">facebook</span></a>

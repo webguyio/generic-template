@@ -6,15 +6,15 @@
 
 </div>
 
-<footer id="footer" role="contentinfo">
+<footer id="footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
 
 <div id="social">
 
-<a href="https://www.facebook.com/example/" title="Facebook" rel="me" target="_blank"><img src="images/fb.svg" alt="Facebook" class="svg" /></a>
-<a href="https://twitter.com/example" title="Twitter" rel="me" target="_blank"><img src="images/tw.svg" alt="Twitter" class="svg" /></a>
-<a href="https://www.instagram.com/example/" title="Instagram" rel="me" target="_blank"><img src="images/ig.svg" alt="Instagram" class="svg" /></a>
-<a href="https://www.pinterest.com/example/" title="Pinterest" rel="me" target="_blank"><img src="images/pn.svg" alt="Pinterest" class="svg" /></a>
-<a href="https://www.youtube.com/example" title="YouTube" rel="me" target="_blank"><img src="images/yt.svg" alt="YouTube" class="svg" /></a>
+<a href="https://www.facebook.com/example/" title="Facebook" rel="me" target="_blank" itemprop="sameAs"><img src="images/fb.svg" alt="Facebook" class="svg" itemprop="image" /></a>
+<a href="https://twitter.com/example" title="Twitter" rel="me" target="_blank" itemprop="sameAs"><img src="images/tw.svg" alt="Twitter" class="svg" itemprop="image" /></a>
+<a href="https://www.instagram.com/example/" title="Instagram" rel="me" target="_blank" itemprop="sameAs"><img src="images/ig.svg" alt="Instagram" class="svg" itemprop="image" /></a>
+<a href="https://www.pinterest.com/example/" title="Pinterest" rel="me" target="_blank" itemprop="sameAs"><img src="images/pn.svg" alt="Pinterest" class="svg" itemprop="image" /></a>
+<a href="https://www.youtube.com/example" title="YouTube" rel="me" target="_blank" itemprop="sameAs"><img src="images/yt.svg" alt="YouTube" class="svg" itemprop="image" /></a>
 
 </div>
 
