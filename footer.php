@@ -50,18 +50,23 @@ $("html").addClass("safari");
 else if (navigator.userAgent.search("Opera") >= 0) {
 $("html").addClass("opera");
 }
-$(".menu-icon").on("click", function () {
+$(".menu-toggle").on("keypress click", function(e) {
+if (e.which == 13 || e.type === "click") {
+e.preventDefault();
 $("#menu").toggleClass("toggled");
+}
 });
-$(".menu-toggle").on("keypress", function(e) {
-if(e.which == 13) {
+$(document).keyup(function(e) {
+if (e.keyCode == 27) {
+if ($("#menu").hasClass("toggled")) {
 $("#menu").toggleClass("toggled");
+}
 }
 });
 $("img.svg").each(function () {
 var $img = $(this);
 var imgURL = $img.attr("src");
-var attributes = $img.prop('attributes');
+var attributes = $img.prop("attributes");
 $.get(imgURL, function (data) {
 var $svg = $(data).find("svg");
 $svg = $svg.removeAttr("xmlns:a");
@@ -71,13 +76,13 @@ $svg.attr(this.name, this.value);
 $img.replaceWith($svg);
 }, "xml");
 });
-$('a').each(function() {
+$("a:not:has(img)").each(function() {
 var a = new RegExp('/' + window.location.host + '/');
 if(!a.test(this.href)) {
 $(this).click(function(event) {
 event.preventDefault();
 event.stopPropagation();
-window.open(this.href, '_blank');
+window.open(this.href, "_blank");
 });
 }
 });

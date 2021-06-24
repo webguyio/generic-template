@@ -2,4 +2,7 @@ User-agent: *
 Disallow: /*?
 Disallow: /cgi-bin/
 
+User-agent: ia_archiver
+Disallow: /
+
 Sitemap: https://example.com/sitemap.xml
