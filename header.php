@@ -29,7 +29,7 @@ define( 'social_username', 'example' );
 
 <title><?php echo page_title; ?> | <?php echo site_title; ?></title>
 
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="canonical" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
 <link rel="stylesheet" href="style.css" />

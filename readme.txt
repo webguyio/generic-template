@@ -1,6 +1,6 @@
-- This is a starter template.
-- Use this tool howe you like.
-- Attribution is NOT required.
+— This is a starter template.
+— Use this tool how you like.
+— Attribution is NOT required.
 
 Hack this template up how you like, starting with making it your own:
 
