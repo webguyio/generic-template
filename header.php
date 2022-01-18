@@ -34,11 +34,11 @@ define( 'social_username', 'example' );
 <link rel="canonical" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
 <link rel="stylesheet" href="style.css" />
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
-<script src="js/videos.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/videos.js"></script>
 <script>
 jQuery(document).ready(function($) {
-$('#wrapper').vids();
+$("#wrapper").vids();
 });
 </script>
 <script type="application/ld+json">

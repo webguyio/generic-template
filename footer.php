@@ -76,8 +76,8 @@ $svg.attr(this.name, this.value);
 $img.replaceWith($svg);
 }, "xml");
 });
-$("a:not:has(img)").each(function() {
-var a = new RegExp('/' + window.location.host + '/');
+$("a").not("a:has(img)").each(function() {
+var a = new RegExp("/" + window.location.host + "/");
 if(!a.test(this.href)) {
 $(this).click(function(event) {
 event.preventDefault();
