@@ -35,6 +35,10 @@ if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
 $("html").addClass("ios");
 $("html").addClass("mobile");
 }
+if (deviceAgent.match(/(Android)/)) {
+$("html").addClass("android");
+$("html").addClass("mobile");
+}
 if (navigator.userAgent.search("MSIE") >= 0) {
 $("html").addClass("ie");
 }
