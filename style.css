@@ -34,6 +34,7 @@ input[type="submit"]:hover, input[type="submit"]:focus, button:hover, button:foc
 a img, input[type="image"], iframe{border:0}
 a img:hover, a:focus img{opacity:0.8}
 img, video, audio, table, select, textarea{max-width:100% !important;height:auto}
+img[src$=".svg"], svg{display:inline-block;line-height:normal;vertical-align:middle}
 table{width:100%;margin:30px 0}
 
 #wrapper{display:flex;flex-direction:column;max-width:100%;min-height:100vh;margin:0 auto}
@@ -67,18 +68,20 @@ table{width:100%;margin:30px 0}
 .share a.email{background:#222}
 .share a.print{background:#767676}
 .share a:hover, .share a:focus{opacity:0.8}
-.share .icon{display:inline-block;width:20px;height:20px}
+.share .share-icon{display:inline-block;width:20px;height:20px}
 
 #site-title h1, #site-title a{font-size:40px;font-weight:normal;color:#fff;text-decoration:none;display:inline}
 .entry-title, .widget-title{margin-top:0}
 #comment{width:100%;max-width:400px !important;height:auto}
 #social{text-align:center;margin-bottom:20px}
 #social a{color:#fff}
-#social .svg{display:inline-block;width:40px;height:40px;margin:5px}
-#social .svg:hover, #social .svg:focus{opacity:0.9}
+#social .icon{display:inline-block;width:40px;height:40px;margin:5px}
+#social .icon:hover, #social .icon:focus{opacity:0.9}
 #copyright, #copyright a{font-size:14px;color:#8a8a8a;text-align:center}
 
 .note{display:block;font-size:14px;padding:20px;margin:30px 0}
+.icon{display:inline-block;width:32px;height:32px;line-height:normal;vertical-align:middle;mask-size:cover;background-color:currentColor}
+.symbol{font-family:"Times","Times New Roman","serif","sans-serif",system-ui,-apple-system,BlinkMacSystemFont,"Avenir Next","Avenir","Segoe UI","Lucida Grande","Helvetica Neue","Helvetica","Fira Sans","Roboto","Noto","Droid Sans","Cantarell","Oxygen","Ubuntu","Franklin Gothic Medium","Century Gothic","Liberation Sans",sans-serif,"EmojiSymbols"}
 
 .round{border-radius:100px}
 .circle{border-radius:50%}
@@ -126,7 +129,9 @@ table{width:100%;margin:30px 0}
 @media(min-width:769px){#site-title{height:35px;float:left}#menu{float:right}}
 @media(max-width:768px){#header, #footer{text-align:center}#content, #sidebar{width:100%;padding:5% 0}.widget-container{margin:30px 0 0}#menu.toggled{width:100%;height:100%;bottom:0;overflow-x:hidden;overflow-y:auto;z-index:1000}#menu .menu-toggle{display:inline-block}#menu ul{display:none}#menu.toggled ul, #menu.toggled ul.sub-menu{display:block;position:relative;top:0;left:0;padding:0 0 10px 0;margin:0}#menu.toggled ul.sub-menu{padding-bottom:0}#menu.toggled a, #menu.toggled ul.sub-menu a{display:inline-block;width:100%;font-size:18px;color:#fff;line-height:20px;padding:15px 0 5px;border:0;margin:0;background:none}#menu.toggled ul.sub-menu a{color:#ccc}.box-4, .box-5, .box-6{width:50%}}
 @media(max-width:767px){.box-3{width:50%}.boxes .box-3:nth-child(3){width:100%}}
-@media(max-width:576px){#header, #container, #footer, .layer{padding:10%}#content, #sidebar{padding:10% 0}#social .svg{width:32px;height:32px}input, textarea, .button{width:100%}input[type="checkbox"], input[type="radio"]{width:auto}.box-2, .box-3, .box-4, .box-5, .box-6, .boxes .box-6:nth-child(5), .boxes .box-6:nth-child(6), .box-2-3, .box-1-3{width:100%}.spacer{display:block;width:100%;height:30px}}
+@media(max-width:576px){#header, #container, #footer, .layer{padding:10%}#content, #sidebar{padding:10% 0}#social .icon{width:32px;height:32px}input, textarea, .button{width:100%}input[type="checkbox"], input[type="radio"]{width:auto}.box-2, .box-3, .box-4, .box-5, .box-6, .boxes .box-6:nth-child(5), .boxes .box-6:nth-child(6), .box-2-3, .box-1-3{width:100%}.spacer{display:block;width:100%;height:30px}}
+@media(prefers-color-scheme:light){body, #container{background:#fff}}
+@media(prefers-color-scheme:dark){body, #container{background:#111}}
 @media print{#content{width:100%;color:#000;padding:0;margin:0;background:#fff;float:none}#header, #sidebar, #footer{display:none}}
 
 .skip-link{position:fixed;top:0;left:0;z-index:9999}
