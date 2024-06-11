@@ -32,6 +32,7 @@ var selectors = [
 "iframe[src*=\"spotify.com\"]",
 "iframe[src*=\"soundcloud.com\"]",
 "iframe[src*=\"wordpress.com\"]",
+"iframe[src*=\"facebook.com\"]",
 "object",
 "embed"
 ];

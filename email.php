@@ -12,7 +12,7 @@ $message = trim( stripslashes( htmlspecialchars( $_POST['message'] ) ) );
 $validated = true;
 
 if ( !$validated ) {
-print '<meta http-equiv="refresh" content="0;url=fail" />';
+print '<meta http-equiv="refresh" content="0;url=fail">';
 exit;
 }
 
@@ -34,9 +34,9 @@ $body .= "\n";
 $success = mail( $to, $subject, $body, "From: $name <$email>" );
  
 if ( $success ) {
-print '<meta http-equiv="refresh" content="0;url=success" />';
+print '<meta http-equiv="refresh" content="0;url=success">';
 } else {
-print '<meta http-equiv="refresh" content="0;url=fail" />';
+print '<meta http-equiv="refresh" content="0;url=fail">';
 }
 
 }

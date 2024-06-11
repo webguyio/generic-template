@@ -2,7 +2,7 @@
 define( 'page_title', 'Failed' );
 define( 'page_description', '' );
 define( 'page_keywords', '' );
-define( 'page_index', '<meta name="robots" content="noindex" />' );
+define( 'page_index', '<meta name="robots" content="noindex">' );
 define( 'page_id', 'failed' );
 include( 'header.php' );
 ?>

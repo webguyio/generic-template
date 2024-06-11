@@ -11,31 +11,31 @@ define( 'social_username', 'example' );
 
 <head>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<meta name="description" content="<?php echo page_description; ?>" />
-<meta name="keywords" content="<?php echo page_keywords; ?>" />
-<meta property="og:image" content="<?php echo site_url; ?>images/icon.png" />
-<meta name="twitter:card" content="photo" />
-<meta name="twitter:site" content="<?php echo site_title; ?>" />
-<meta name="twitter:title" content="<?php echo page_title; ?>" />
-<meta name="twitter:description" content="<?php echo page_description; ?>" />
-<meta name="twitter:image" content="<?php echo site_url; ?>images/icon.png" />
-<meta name="twitter:url" content="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
-<meta name="twitter:widgets:theme" content="light" />
-<meta name="twitter:widgets:link-color" content="blue" />
-<meta name="twitter:widgets:border-color" content="#fff" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="<?php echo page_description; ?>">
+<meta name="keywords" content="<?php echo page_keywords; ?>">
+<meta property="og:image" content="<?php echo site_url; ?>images/icon.png">
+<meta name="twitter:card" content="photo">
+<meta name="twitter:site" content="<?php echo site_title; ?>">
+<meta name="twitter:title" content="<?php echo page_title; ?>">
+<meta name="twitter:description" content="<?php echo page_description; ?>">
+<meta name="twitter:image" content="<?php echo site_url; ?>images/icon.png">
+<meta name="twitter:url" content="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>">
+<meta name="twitter:widgets:theme" content="light">
+<meta name="twitter:widgets:link-color" content="blue">
+<meta name="twitter:widgets:border-color" content="#fff">
 <?php echo page_index; ?>
 
 <title><?php echo page_title; ?> | <?php echo site_title; ?></title>
 
-<link rel="icon" href="favicon.ico" sizes="32x32" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="canonical" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>" />
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="icons/icons.css" />
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?><?php echo parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ); ?>">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="icons/icons.css">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/jquery@latest/dist/jquery.min.js"></script>
 <script src="js/videos.js"></script>
 <script>
 jQuery(document).ready(function($) {
@@ -74,11 +74,22 @@ $("#wrapper").vids();
 
 <div id="wrapper" class="hfeed">
 
-<header id="header" role="banner"> 
+<header id="header"> 
 
-<div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><a href="./<?php // echo site_url; ?>" itemprop="url"><meta itemprop="name" content="<?php echo site_title; ?>" /><img src="images/logo.png" alt="<?php echo site_title; ?>" id="logo" itemprop="logo" /></a></div>
+<div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+<a href="./<?php // echo site_url; ?>" itemprop="url">
+<meta itemprop="name" content="<?php echo site_title; ?>">
+<?php
+if ( is_readable( 'images/logo.png' ) ) {
+echo '<img src="images/logo.png" alt="' . site_title . '" id="logo" itemprop="logo">';
+} else {
+echo site_title;
+}
+?>
+</a>
+</div>
 
-<nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+<nav id="menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
 
 <button type="button" class="menu-toggle"><span class="menu-icon">&#9776;</span><span class="menu-text visually-hidden"> Menu</span></button>
 
@@ -104,7 +115,7 @@ $("#wrapper").vids();
 
 <div id="container">
 
-<main id="content" class="hentry" role="main">
+<main id="content" class="hentry">
 
 <article class="entry-content" itemprop="mainContentOfPage">
 

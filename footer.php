@@ -6,7 +6,7 @@
 
 </div>
 
-<footer id="footer" role="contentinfo">
+<footer id="footer">
 
 <div id="social">
 
@@ -43,16 +43,7 @@ $("#menu").toggleClass("toggled");
 }
 }
 });
-$("a").not("a:has(img)").each(function() {
-var a = new RegExp("/" + window.location.host + "/");
-if(!a.test(this.href)) {
-$(this).click(function(event) {
-event.preventDefault();
-event.stopPropagation();
-window.open(this.href, "_blank");
-});
-}
-});
+$("a[href^='http']").not("a[href*='<?php echo $_SERVER['HTTP_HOST']; ?>'], a[href$='.jpg|.jpeg|.jfif|.pjpeg|.pjp|.png|.apng|.gif|.svg|.webp|.avif']").attr("target", "_blank");
 });
 </script>
 
