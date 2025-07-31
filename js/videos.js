@@ -25,7 +25,6 @@ var selectors = [
 "iframe[src*=\"metacafe.com\"]",
 "iframe[src*=\"player.twitch.tv\"]",
 "iframe[src*=\"tiktok.com\"]",
-"iframe[src*=\"liveleak.com\"]",
 "iframe[src*=\"kickstarter.com\"][src*=\"video.html\"]",
 "iframe[src*=\"blip.tv\"]",
 "iframe[src*=\"anchor.fm\"]",
