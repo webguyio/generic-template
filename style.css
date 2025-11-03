@@ -25,7 +25,7 @@ blockquote p:first-of-type{margin-top:0}
 #content ul, #content ol{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;margin:30px 0 30px 60px}
 #content ul ul, #content ol ol, #content ul ol, #content ol ul{margin-top:0;margin-bottom:0}
 #content ol{list-style:decimal outside;list-style-type:decimal-leading-zero;margin-left:70px}
-#content ul li{list-style-type:'— '}
+#content ul li{list-style-type:disc}
 #content li{line-height:125%;margin:20px 0}
 input, textarea{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;font-size:16px;padding:15px;border:0;border-bottom:1px solid transparent;outline:0;margin-top:10px;background:#f6f6f6}
 input:focus, textarea:focus{border-bottom:1px solid #007acc}
@@ -35,6 +35,7 @@ a img, input[type="image"], iframe{border:0}
 a img:hover, a:focus img{opacity:0.8}
 img, img[src$=".svg"], svg{display:inline-block;line-height:normal;vertical-align:middle}
 img, video, audio, table, select, textarea{max-width:100% !important;height:auto}
+iframe, embed, object{max-width:100%;height:auto;vertical-align:middle}
 table{width:100%;margin:30px 0}
 
 #wrapper{display:flex;flex-direction:column;max-width:100%;min-height:100vh;margin:0 auto}

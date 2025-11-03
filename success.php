@@ -7,6 +7,6 @@ define( 'page_id', 'success' );
 include( 'header.php' );
 ?>
 
-<p>Thank you.<p>
+<p>Thank you.</p>
 
 <?php include( 'footer.php' ); ?>

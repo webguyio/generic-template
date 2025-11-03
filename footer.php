@@ -10,11 +10,11 @@
 
 <div id="social">
 
-<a href="https://www.facebook.com/<?php echo social_username; ?>/" title="Facebook" rel="me" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/fb.svg)" title="Facebook" itemprop="image"></i></a>
-<a href="https://x.com/<?php echo social_username; ?>" title="X" rel="me" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/tw.svg)" title="X" itemprop="image"></i></a>
-<a href="https://www.instagram.com/<?php echo social_username; ?>/" title="Instagram" rel="me" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/ig.svg)" title="Instagram" itemprop="image"></i></a>
-<a href="https://www.pinterest.com/<?php echo social_username; ?>/" title="Pinterest" rel="me" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/pn.svg)" title="Pinterest" itemprop="image"></i></a>
-<a href="https://www.youtube.com/<?php echo social_username; ?>" title="YouTube" rel="me" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/yt.svg)" title="YouTube" itemprop="image"></i></a>
+<a href="https://www.facebook.com/<?php echo social_username; ?>/" title="Facebook" rel="me noopener" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/fb.svg)" title="Facebook" itemprop="image"></i></a>
+<a href="https://x.com/<?php echo social_username; ?>" title="X" rel="me noopener" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/tw.svg)" title="X" itemprop="image"></i></a>
+<a href="https://www.instagram.com/<?php echo social_username; ?>/" title="Instagram" rel="me noopener" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/ig.svg)" title="Instagram" itemprop="image"></i></a>
+<a href="https://www.pinterest.com/<?php echo social_username; ?>/" title="Pinterest" rel="me noopener" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/pn.svg)" title="Pinterest" itemprop="image"></i></a>
+<a href="https://www.youtube.com/<?php echo social_username; ?>" title="YouTube" rel="me noopener" target="_blank" itemprop="sameAs"><i class="icon" style="mask:url(images/yt.svg)" title="YouTube" itemprop="image"></i></a>
 
 </div>
 
@@ -29,22 +29,34 @@
 </div>
 
 <script>
-jQuery(document).ready(function($) {
-$(".menu-toggle").on("keypress click", function(e) {
-if (e.which == 13 || e.type === "click") {
-e.preventDefault();
-$("#menu").toggleClass("toggled");
+document.addEventListener( 'DOMContentLoaded', function() {
+const menuToggle = document.querySelector( '.menu-toggle' );
+const menu = document.getElementById( 'menu' );
+menuToggle.addEventListener( 'click', function() {
+menu.classList.toggle( 'toggled' );
+} );
+document.addEventListener( 'keyup', function( e ) {
+if ( e.key === 'Escape' && menu.classList.contains( 'toggled' ) ) {
+menu.classList.toggle( 'toggled' );
 }
-});
-$(document).keyup(function(e) {
-if (e.keyCode == 27) {
-if ($("#menu").hasClass("toggled")) {
-$("#menu").toggleClass("toggled");
+} );
+const host = '<?php echo htmlspecialchars( $_SERVER['HTTP_HOST'], ENT_QUOTES, 'UTF-8' ); ?>';
+const imageExtensions = /\.(jpg|jpeg|jfif|pjpeg|pjp|png|apng|gif|svg|webp|avif)$/i;
+document.querySelectorAll( 'a[href^="http"]' ).forEach( function( link ) {
+if ( !link.href.includes( host ) && !imageExtensions.test( link.href ) ) {
+link.setAttribute( 'target', '_blank' );
+const rel = link.getAttribute( 'rel' ) || '';
+link.setAttribute( 'rel', ( rel + ' noopener' ).trim() );
 }
+} );
+reframe( 'iframe, object, embed' );
+if ( typeof lucide !== 'undefined' ) {
+lucide.createIcons();
 }
-});
-$("a[href^='http']").not("a[href*='<?php echo $_SERVER['HTTP_HOST']; ?>'], a[href$='.jpg|.jpeg|.jfif|.pjpeg|.pjp|.png|.apng|.gif|.svg|.webp|.avif']").attr("target", "_blank");
-});
+if ( typeof simpleIcons !== 'undefined' ) {
+simpleIcons.replace();
+}
+} );
 </script>
 
 </body>
