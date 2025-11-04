@@ -3,6 +3,7 @@ session_start();
 if ( empty( $_SESSION['contact_token'] ) ) {
 $_SESSION['contact_token'] = bin2hex( random_bytes( 32 ) );
 }
+
 define( 'page_title', 'Contact' );
 define( 'page_description', 'Page description for search engines here.' );
 define( 'page_keywords', 'keywords, for, search engines, here' );
@@ -27,7 +28,7 @@ comment.reportValidity();
 </script>
 
 <form id="contact-form" name="contact-form" method="post" action="email.php">
-<input type="hidden" name="token" value="<?php echo htmlspecialchars( $_SESSION['contact_token'], ENT_QUOTES, 'UTF-8' ); ?>">
+<input type="hidden" name="token" value="<?php echo safe( $_SESSION['contact_token'], 'attr' ); ?>">
 <p id="name"><label for="name-input" class="visually-hidden">Name</label><input type="text" id="name-input" name="name" placeholder="Name" autocomplete="off" required></p>
 <p id="email"><label for="email-input" class="visually-hidden">Email</label><input type="email" id="email-input" name="email" placeholder="Email" autocomplete="off" required></p>
 <p id="phone"><label for="phone-input" class="visually-hidden">Phone</label><input type="tel" id="phone-input" name="phone" placeholder="Phone (optional)" autocomplete="off"></p>

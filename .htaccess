@@ -1,18 +1,27 @@
+################
+### Security ###
+################
+
 <IfModule mod_headers.c>
-Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:; connect-src 'self' https:; frame-src 'self' https:; frame-ancestors 'self';"
-Header always append X-Frame-Options SAMEORIGIN
-Header set X-Content-Type-Options nosniff
+Header set Content-Security-Policy "upgrade-insecure-requests; default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src https:; frame-ancestors 'self';"
+Header set X-Content-Type-Options "nosniff"
+Header always append X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
 Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 </IfModule>
 
-<Files .htaccess>
-order allow,deny
-deny from all
-</Files>
+<FilesMatch "(^\.)|(\.(log|logs|ini)$)|(^(error_log|debug|access_log|php_error|Thumbs\.db)$)">
+Require all denied
+</FilesMatch>
 
 ServerSignature Off
 
 Options -Indexes
+
+###########
+### SEO ###
+###########
 
 RewriteEngine On
 
@@ -26,7 +35,16 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
 
+ErrorDocument 400 /404
+ErrorDocument 401 /404
+ErrorDocument 403 /404
 ErrorDocument 404 /404
+ErrorDocument 500 /404
+ErrorDocument 503 /404
+
+################
+### Firewall ###
+################
 
 RewriteBase /
 <IfModule mod_rewrite.c>
@@ -173,6 +191,10 @@ RewriteCond %{REQUEST_METHOD} ^(connect|debug|move|trace|track) [NC]
 RewriteRule .* - [F]
 </IfModule>
 
+#############
+### Speed ###
+#############
+
 AddDefaultCharset UTF-8
 <IfModule mod_mime.c>
 AddCharset UTF-8 .atom .css .js .json .rss .vtt .xml
@@ -189,12 +211,16 @@ Header append Cache-Control "public"
 Header unset Last-Modified
 </IfModule>
 </FilesMatch>
-<FilesMatch "\.(css|htc|js|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$">
+<FilesMatch "\.(css|htc|js|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|webp|avif|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$">
 <IfModule mod_headers.c>
 Header unset Pragma
 Header append Cache-Control "public"
 </IfModule>
 </FilesMatch>
+</IfModule>
+<IfModule mod_headers.c>
+Header add Link "<https://unpkg.com>; rel=preconnect; crossorigin"
+Header add Link "</style.css>; rel=preload; as=style"
 </IfModule>
 <IfModule mod_expires.c>
 ExpiresActive on
@@ -225,6 +251,11 @@ ExpiresByType image/svg+xml                 "access plus 1 month"
 ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 ExpiresByType text/css                      "access plus 1 year"
 ExpiresByType application/javascript        "access plus 1 year"
+</IfModule>
+<IfModule mod_brotli.c>
+AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript
+AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/xml
+AddOutputFilterByType BROTLI_COMPRESS application/rss+xml image/svg+xml
 </IfModule>
 <IfModule mod_deflate.c>
 SetOutputFilter DEFLATE

@@ -20,7 +20,7 @@
 
 <div id="copyright">
 
-&copy; <?php echo date( 'Y' ); ?> <?php echo site_title; ?>
+&copy; <?php echo date( 'Y' ); ?> <?php echo safe( site_title, 'html' ); ?>
 
 </div>
 

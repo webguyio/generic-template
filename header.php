@@ -3,6 +3,25 @@ define( 'site_title', 'Title of Site' );
 define( 'site_description', 'Site description here.' );
 define( 'site_url', 'https://example.com/' );
 define( 'social_username', 'example' );
+
+function safe( $text, $context = 'html' ) {
+if ( is_null( $text ) ) {
+return '';
+}
+$text = ( string ) $text;
+switch ( $context ) {
+case 'attr':
+return htmlspecialchars( $text, ENT_QUOTES, 'UTF-8' );
+case 'html':
+return htmlspecialchars( $text, ENT_NOQUOTES, 'UTF-8' );
+case 'url':
+return filter_var( $text, FILTER_SANITIZE_URL );
+case 'js':
+return json_encode( $text, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE );
+default:
+return htmlspecialchars( $text, ENT_QUOTES, 'UTF-8' );
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +32,16 @@ define( 'social_username', 'example' );
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<meta name="description" content="<?php echo page_description; ?>">
-<meta name="keywords" content="<?php echo page_keywords; ?>">
+<meta name="description" content="<?php echo safe( page_description, 'attr' ); ?>">
+<meta name="keywords" content="<?php echo safe( page_keywords, 'attr' ); ?>">
 <meta property="og:image" content="<?php echo site_url; ?>images/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://<?php echo htmlspecialchars( $_SERVER['HTTP_HOST'], ENT_QUOTES, 'UTF-8' ); ?><?php echo htmlspecialchars( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), ENT_QUOTES, 'UTF-8' ); ?>">
+<meta property="og:title" content="<?php echo safe( page_title, 'attr' ); ?>">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="<?php echo site_title; ?>">
-<meta name="twitter:title" content="<?php echo page_title; ?>">
-<meta name="twitter:description" content="<?php echo page_description; ?>">
+<meta name="twitter:site" content="<?php echo safe( site_title, 'attr' ); ?>">
+<meta name="twitter:title" content="<?php echo safe( page_title, 'attr' ); ?>">
+<meta name="twitter:description" content="<?php echo safe( page_description, 'attr' ); ?>">
 <meta name="twitter:image" content="<?php echo site_url; ?>images/icon.png">
 <meta name="twitter:url" content="https://<?php echo htmlspecialchars( $_SERVER['HTTP_HOST'], ENT_QUOTES, 'UTF-8' ); ?><?php echo htmlspecialchars( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), ENT_QUOTES, 'UTF-8' ); ?>">
 <meta name="twitter:widgets:theme" content="light">
@@ -27,7 +49,7 @@ define( 'social_username', 'example' );
 <meta name="twitter:widgets:border-color" content="#fff">
 <?php echo page_index; ?>
 
-<title><?php echo page_title; ?> | <?php echo site_title; ?></title>
+<title><?php echo safe( page_title, 'html' ); ?> | <?php echo safe( site_title, 'html' ); ?></title>
 
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -42,29 +64,29 @@ define( 'social_username', 'example' );
 {
 "@context": "https://schema.org/",
 "@type": "WebSite",
-"name": "<?php echo site_title; ?>",
-"url": "<?php echo site_url; ?>"
+"name": <?php echo safe( site_title, 'js' ); ?>,
+"url": <?php echo safe( site_url, 'js' ); ?>
 }
 </script>
 <script type="application/ld+json">
 {
 "@context": "https://schema.org/",
 "@type": "Organization",
-"name": "<?php echo site_title; ?>",
-"url": "<?php echo site_url; ?>",
+"name": <?php echo safe( site_title, 'js' ); ?>,
+"url": <?php echo safe( site_url, 'js' ); ?>,
 "sameAs": [
-"https://www.facebook.com/<?php echo social_username; ?>/",
-"https://x.com/<?php echo social_username; ?>"
+<?php echo safe( 'https://www.facebook.com/' . social_username . '/', 'js' ); ?>,
+<?php echo safe( 'https://x.com/' . social_username, 'js' ); ?>
 ],
-"logo": "<?php echo site_url; ?>images/logo.png",
-"image": "<?php echo site_url; ?>images/icon.png",
-"description": "<?php echo site_description; ?>"
+"logo": <?php echo safe( site_url . 'images/logo.png', 'js' ); ?>,
+"image": <?php echo safe( site_url . 'images/icon.png', 'js' ); ?>,
+"description": <?php echo safe( site_description, 'js' ); ?>
 }
 </script>
 
 </head>
 
-<body id="<?php echo page_id; ?>">
+<body id="<?php echo safe( page_id, 'attr' ); ?>">
 
 <a href="#content" class="button skip-link visually-hidden">Skip to the content</a>
 
@@ -74,12 +96,12 @@ define( 'social_username', 'example' );
 
 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 <a href="./<?php // echo site_url; ?>" itemprop="url">
-<meta itemprop="name" content="<?php echo site_title; ?>">
+<meta itemprop="name" content="<?php echo safe( site_title, 'attr' ); ?>">
 <?php
 if ( is_readable( 'images/logo.png' ) ) {
-echo '<img src="images/logo.png" alt="' . site_title . '" id="logo" itemprop="logo">';
+echo '<img src="images/logo.png" alt="' . safe( site_title, 'attr' ) . '" id="logo" itemprop="logo">';
 } else {
-echo site_title;
+echo safe( site_title, 'html' );
 }
 ?>
 </a>
@@ -117,7 +139,7 @@ echo site_title;
 
 <header>
 
-<h1 class="entry-title" itemprop="name"><?php echo page_title; ?></h1>
+<h1 class="entry-title" itemprop="name"><?php echo safe( page_title, 'html' ); ?></h1>
 
 <div class="share">
 <a href="https://www.facebook.com/sharer/sharer.php?t=<?php echo rawurlencode( page_title ); ?>&amp;u=https://<?php echo htmlspecialchars( $_SERVER['HTTP_HOST'], ENT_QUOTES, 'UTF-8' ); ?><?php echo htmlspecialchars( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), ENT_QUOTES, 'UTF-8' ); ?>" title="Share on Facebook" class="facebook" target="_blank" rel="noopener"><span class="share-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m22.676 0h-21.352c-.731 0-1.324.593-1.324 1.324v21.352c0 .732.593 1.324 1.324 1.324h11.494v-9.294h-3.129v-3.621h3.129v-2.675c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63h-3.119v9.282h6.115c.733 0 1.325-.592 1.325-1.324v-21.352c0-.731-.592-1.324-1.324-1.324" /></svg></span></a>
